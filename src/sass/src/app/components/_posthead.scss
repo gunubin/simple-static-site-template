@@ -1,0 +1,64 @@
+/* =========================================================
+  component posthead
+============================================================ */
+.posthead {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding: 60px 0 20px;
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include mq-md {
+    min-height: 600px;
+  }
+  &-background {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to top, $green-gradient01-color, $green-gradient02-color);
+    &-red {
+      background-image: linear-gradient(to top, $red-gradient01-color, $red-gradient02-color);
+    }
+  }
+  &-inner {
+    z-index: 2;
+    position: relative;
+    padding: 0 20px;
+    text-align: center;
+    @include mq-md {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+  }
+  &-type {
+    @include fz(18/2, 80/2, 150);
+    @include font-en;
+    color: #FFFFFF;
+    opacity: 0.6;
+    @include mq-md {
+      @include fz(18, 80, 150);
+    }
+  }
+  &-ttl {
+    @include fz(24/2, 37/2, 50);
+    color: #FFFFFF;
+    @include mq-md {
+      @include fz(24, 37, 50);
+    }
+  }
+  &-date {
+    @include fz(18/2, 80/2, 150);
+    @include font-en;
+    color: #FFFFFF;
+    opacity: 0.6;
+    @include mq-md {
+      @include fz(14, 80, 200);
+      color: #FFFFFF;
+    }
+  }
+}

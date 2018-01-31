@@ -1,0 +1,83 @@
+@function leading($fz: 14, $line-height: 24) {
+  $linS: $line-height / $fz;
+  $val: ($fz * $linS) - $fz;
+  @return $val;
+}
+@function half-leading($fz: 14, $lin: 24) {
+  @return leading($fz, $lin) / 2;
+}
+
+@mixin text-margin-bottom($margin: 20, $fz: 14, $lin: 24) {
+  $linS: $lin / $fz;
+  $val: #{($margin - ((($fz * $linS) - $fz) / 2))};
+  margin-bottom: #{$val}px;
+}
+@mixin text-padding-bottom($margin: 20, $fz: 14, $lin: 24) {
+  $linS: $lin / $fz;
+  $val: #{($margin - ((($fz * $linS) - $fz) / 2))};
+  padding-bottom: #{$val}px;
+}
+@mixin font-size($fz, $lin: 24, $tracking: 50) {
+  $rem: $fz / 10;
+  $linS: $lin / $fz;
+  font-size: #{$fz}px;
+  font-size: #{$rem}rem;
+  line-height: $linS;
+  letter-spacing: #{$tracking / 1000}em;
+}
+@mixin fz-margin-top($fz, $lin: 24, $tracking: 50, $margin-top: 0) {
+  @include font-size($fz, $lin, $tracking);
+  @if $margin-top != 0 {
+    margin-top: #{$margin-top - leading($fz, $lin)/2}px;
+  }
+}
+@mixin fz-padding-top($fz, $lin: 24, $tracking: 50, $padding-top: 0) {
+  @include font-size($fz, $lin, $tracking);
+  @if $padding-top != 0 {
+    padding-top: #{$padding-top - leading($fz, $lin)/2}px;
+  }
+}
+@mixin fz-margin-bottom($fz, $lin: 24, $tracking: 50, $margin-bottom: 0) {
+  @include font-size($fz, $lin, $tracking);
+  @if $margin-bottom != 0 {
+    margin-bottom: #{$margin-bottom - leading($fz, $lin)/2}px;
+  }
+}
+@mixin fz-padding-bottom($fz, $lin: 24, $tracking: 50, $padding-bottom: 0) {
+  @include font-size($fz, $lin, $tracking);
+  @if $padding-bottom != 0 {
+    padding-bottom: #{$padding-bottom - leading($fz, $lin)/2}px;
+  }
+}
+@mixin fz($fz, $lin: 24, $tracking: 50, $margin-bottom: 0, $padding-bottom: 0) {
+  $rem: $fz / 10;
+  $linS: $lin / $fz;
+  //font-size: #{$fz}px;
+  font-size: #{$rem}rem;
+  font-weight: 400;
+  line-height: $linS;
+  letter-spacing: #{$tracking / 1000}em;
+  @if $margin-bottom != 0 {
+    @include text-margin-bottom($margin-bottom, $fz, $lin);
+  }
+  @if $padding-bottom != 0 {
+    @include text-padding-bottom($padding-bottom, $fz, $lin);
+  }
+}
+
+// retina
+@mixin fzrn($fz, $lin: 24, $tracking: 50) {
+  $fz: $fz / 2;
+  $lin: $lin / 2;
+  $tracking: $tracking / 2;
+  @include fz($fz, $lin, $tracking);
+}
+
+@mixin letter-spacing($tracking) {
+  letter-spacing: #{$tracking / 1000}em;
+}
+
+@function line-height($fz ,$lin) {
+  @return #{$lin / $fz}em;
+}
+

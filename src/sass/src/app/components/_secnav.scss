@@ -1,0 +1,66 @@
+/* =========================================================
+  component secnav
+============================================================ */
+.secnav {
+  display: none;
+  @include mq-md {
+    z-index: $z-index-nav;
+    position: fixed;
+    right: 40px;
+    display: block;
+    height: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    &-inner {
+      position: relative;
+    }
+    &-link {
+      padding-right: 20px;
+      display: block;
+      text-align: right;
+      @include fz(11, 20, 130);
+      height: 30px;
+      color: #FFFFFF;
+      @include ts-hover($duration: 0.2s, $target: height);
+      span {
+        padding-right: 14px;
+        display: inline-block;
+        vertical-align: middle;
+        opacity: 0;
+        visibility: hidden;
+        @include ts-hover;
+      }
+      &:after {
+        content: '';
+        display: inline-block;
+        vertical-align: middle;
+        width: 10px;
+        height: 1px;
+        border-top: 1px solid #fff;
+        @include ts-hover();
+      }
+      &.is-active:after, &:hover:after {
+        width: 20px;
+      }
+    }
+    &.is-scrolled &-link {
+      height: 20px;
+      color: #000;
+      span {
+        opacity: 0;
+        visibility: hidden;
+      }
+      &:after {
+        border-color: #000;
+        opacity: 0.6;
+      }
+    }
+    &-inner:hover &-link {
+      height: 30px;
+    }
+    &-inner:hover &-link span {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}

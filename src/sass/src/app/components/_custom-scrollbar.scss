@@ -1,0 +1,56 @@
+/* =========================================================
+  component custom scroll bar
+============================================================ */
+@mixin scrollBar($color: #000) {
+  border-radius: 0;
+  background-color: $color !important;
+  height: 3px;
+}
+
+.mCS-custom {
+  &.mCSB_scrollTools {
+    opacity: 1.0;
+  }
+  &.mCSB_scrollTools:hover {
+    opacity: 1.0;
+  }
+  .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+    @include scrollBar(#adadad);
+  }
+  .mCSB_scrollTools .mCSB_draggerRail {
+    height: 1px;
+    background-color: #dedede;
+  }
+  &.mCSB_inside > .mCSB_container {
+    margin-right: 2px;
+  }
+  .mCSB_scrollTools {
+  }
+}
+
+@mixin scrollBarV($color: #000) {
+  border-radius: 0;
+  background-color: $color !important;
+  width: 2px;
+}
+.mCS-custom-text {
+  &.mCSB_scrollTools {
+    width: 2px;
+    opacity: 1.0;
+  }
+  &.mCSB_scrollTools:hover {
+    opacity: 1.0;
+  }
+  .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+    @include scrollBarV(#adadad);
+  }
+  .mCSB_scrollTools .mCSB_draggerRail {
+    width: 1px;
+    background-color: #dedede;
+  }
+  &.mCSB_inside > .mCSB_container {
+    margin-right: 12px;
+  }
+  .mCSB_scrollTools {
+  }
+}

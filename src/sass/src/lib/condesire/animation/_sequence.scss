@@ -1,0 +1,30 @@
+$-queue: (
+  app: ()
+);
+
+@mixin queue($sequence-name: app, $keyframe: null, $duration: 0, $gap:0, $ease: $easeOutCubic) {
+
+  $keyframe: process-args($keyframe);
+
+  $series: () !global;
+
+  @if not map-has-key($-queue, $sequence-name) {
+    $-queue: map-set($-queue, $sequence-name, ()) !global;
+  }
+
+  $series: map-get($-queue, $sequence-name);
+
+  $actual-delay: 0s;
+
+  @each $anim in $series {
+    $_duration: map-get($anim, duration);
+    $_gap: map-get($anim, gap);
+    $actual-delay: $actual-delay + $_duration + $_gap;
+  }
+
+  $item: (duration: $duration, gap: $gap);
+  $series: append($series, $item);
+  $-queue: map-set($-queue, $sequence-name, $series) !global;
+
+  @include animation($keyframe, $duration: $duration, $ease: $ease, $delay: $actual-delay);
+}

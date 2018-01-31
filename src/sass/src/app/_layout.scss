@@ -1,0 +1,52 @@
+@mixin content-container {
+  z-index: 10;
+  position: relative;
+  @include container;
+  @include mq-sm {
+    max-width: $screen-sm;
+  }
+  @include mq-md {
+    padding-left: $container-side-gutter-md;
+    padding-right: $container-side-gutter-md;
+    max-width: 1440px + $container-side-gutter-md * 2;
+    margin: 0 auto;
+  }
+}
+.container-part {
+  z-index: 10;
+  position: relative;
+  @include content-container;
+  //margin-top: 60px;
+  padding-top: 60px;
+  @include mq-md {
+    margin: 100px auto 0;
+  }
+  &.is-first {
+    margin-top: 0;
+    padding-top: 0;
+  }
+}
+
+.container {
+  position: relative;
+  @include content-container;
+}
+.read-container {
+  @include mq-md {
+    padding: 0 120px;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+}
+
+
+/* text
+------------------------------------------------------------ */
+.text {
+  &-right {
+    text-align: right;
+  }
+  &-left {
+    text-align: left;
+  }
+}

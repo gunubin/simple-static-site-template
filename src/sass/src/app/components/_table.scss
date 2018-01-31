@@ -1,0 +1,42 @@
+/* =========================================================
+  component table
+============================================================ */
+.table {
+  //display: table;
+  margin-top: 30px;
+  width: 100%;
+  border-bottom: solid 1px $border-color;
+  @include mq-md {
+    max-width: 840px;
+    margin: 94px auto 0;
+  }
+  .tr, .js-scroll {
+    display: table;
+    width: 100%;
+    //display: table-row;
+  }
+  .th, .td {
+    display: table-cell;
+    vertical-align: top;
+    padding: 14px 0;
+    border-top: solid 1px $border-color;
+    font-weight: 400;
+    @include fz(24/2, 40/2, 50);
+    color: #3C3C3C;
+    text-align: left;
+    a {
+      @include link;
+    }
+    @include mq-md {
+      padding: 26px 0;
+      @include fz(12.5, 27, 75);
+    }
+  }
+  .th {
+    width: 9em;
+    @include mq-md {
+      width: 20em;
+    }
+  }
+
+}

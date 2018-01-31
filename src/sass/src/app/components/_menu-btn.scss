@@ -1,0 +1,91 @@
+.menu-btn {
+  overflow: hidden;
+  z-index: $z-index-menu-btn;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 60px;
+  height: 45px;
+  text-align: center;
+  @include mq-md {
+    top: 41px;
+    right: 40px;
+    @include ts-hover;
+    &.is-scrolled {
+      top: 18px;
+    }
+  }
+  @include mq-menu-btn {
+    display: none;
+  }
+  &.open .btn-bar {
+    background-color: #000;
+  }
+}
+
+.menu-btn_inner {
+  position: relative;
+  padding: 20px 20px 15px;
+  width: 60px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+.btn-bar {
+  display: block;
+  position: relative;
+  top: 0;
+  width: 20px;
+  height: 1px;
+  background-color: #fff;
+  transition: 0.24s ease;
+
+  &--01 {
+  }
+  &--02 {
+    top: 5px;
+  }
+  &--03 {
+    top: 10px;
+  }
+}
+
+/* hover
+------------------------------------------------------------ */
+.menu-btn:hover .btn-bar--01 {
+  @include mq-md {
+    transform: translateX(2px);
+  }
+}
+.menu-btn:hover .btn-bar--02 {
+  @include mq-md {
+    transform: translateX(-4px);
+  }
+}
+.menu-btn:hover .btn-bar--03 {
+  @include mq-md {
+    transform: translateX(6px);
+  }
+}
+
+/* open
+------------------------------------------------------------ */
+.open .btn-bar--01 {
+  top: 5px;
+  transform: rotate(-45deg) !important;
+}
+.open .btn-bar--02 {
+  opacity: 0;
+  transform: translateX(50%);
+}
+.open .btn-bar--03 {
+  top: 3px;
+  transform: rotate(45deg) !important;
+}
+
+/* is scroll
+------------------------------------------------------------ */
+.menu-btn.is-scrolled .btn-bar {
+  background-color: #000;
+}
+

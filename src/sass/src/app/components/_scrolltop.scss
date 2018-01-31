@@ -1,0 +1,107 @@
+/* =========================================================
+  component scrolltop
+============================================================ */
+.scrolltop {
+  z-index: $z-index-scrolltop;
+  position: fixed;
+  right: 32px;
+  bottom: 50px;
+  pointer-events: none;
+  @include mq-md {
+    bottom:  83px;
+  }
+  &-txt {
+    display: inline-block;
+    @include font-en;
+    @include fz(12/2, 26/2, 100);
+    color: $green-color;
+    @include ts-hover(0.3s, $easeOutCubic);
+    opacity: 0;
+    visibility: hidden;
+    @include mq-md {
+      @include fz(13, 26, 100);
+      @include ts-hover;
+    }
+  }
+  &-arrow {
+    display: inline-block;
+    margin-left: 7px;
+    margin-top: 1px;
+    height: 50px;
+    font-size: 0;
+    @include mq-md {
+      @include ts-hover();
+    }
+    &:before {
+      content: '';
+      z-index: 10;
+      display: block;
+      margin: 0 auto;
+      position: relative;
+      width: 1px;
+      height: 100%;
+      border-left: solid 1px $green-color;
+      transform: scaleY(0);
+      transform-origin: bottom;
+      @include ts-hover();
+      @function scroll-top-arrow-keyframe-out() {
+        $keyframes: (
+                name: 'scroll-top-arrow-keyframe-out',
+                0: (transform: 'scaleY(1)', transform-origin: 'bottom'),
+                100: (transform: 'scaleY(0)', transform-origin: 'bottom'),
+        );
+        @return $keyframes;
+      }
+      @include animation(scroll-top-arrow-keyframe-out(), 0.2s, $easeOutCubic, 0, 1);
+    }
+    .angle {
+      @include angle-line('up', $green-color, $size: 20px, $border-width: 1px);
+      &:before, &:after {
+        //transform: scale(0);
+        @include ts-hover();
+      }
+      &:before {
+        @include animation(scroll-top-angle-keyframe-left-out(), 0.2s, $easeOutCubic, 0s, 1, alternate);
+      }
+      &:after {
+        @include animation(scroll-top-angle-keyframe-right-out, 0.2s, $easeOutCubic, 0s, 1, alternate);
+      }
+      top: 0;
+    }
+  }
+  /* show
+------------------------------------------------------------ */
+  &.is-show {
+    pointer-events: auto;
+  }
+  &.is-show &-txt {
+    opacity: 1.0;
+    visibility: visible;
+  }
+  &.is-show &-arrow:before {
+    @include animation(scroll-top-arrow-keyframe(), 0.2s, $easeOutCubic, 0, 1);
+  }
+  &.is-show .angle:before {
+    @include animation(scroll-top-angle-keyframe-left, 0.1s, $easeOutCubic, 0.1s, 1, alternate);
+  }
+  &.is-show .angle:after {
+    @include animation(scroll-top-angle-keyframe-right, 0.1s, $easeOutCubic, 0.1s, 1, alternate);
+  }
+  /* hover
+------------------------------------------------------------ */
+  .is-hover &-txt {
+    color: $light-green-color;
+  }
+  .is-hover &-arrow {
+    height: 60px;
+    &:before {
+      border-color: $light-green-color;
+    }
+  }
+  .is-hover &-arrow .angle:before {
+    border-color: $light-green-color;
+  }
+  .is-hover &-arrow .angle:after {
+    border-color: $light-green-color;
+  }
+}

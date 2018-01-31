@@ -1,0 +1,71 @@
+/* =========================================================
+  component page links
+============================================================ */
+.page-links {
+  margin-top: 30px;
+  max-width: 400px;
+  overflow: hidden;
+  @include container;
+  @include mq-md {
+    padding-left: $container-side-gutter-md;
+    padding-right: $container-side-gutter-md;
+    max-width: 1440px + $container-side-gutter-md * 2;
+    margin-top: 100px;
+  }
+}
+
+.page-link {
+  position: relative;
+  overflow: hidden;
+  &-scroll {
+    @include backscreenScroll(#fff, top, Y);
+  }
+  padding: 8.79% 4px;
+  text-align: center;
+  @include col(10, 0);
+  background-color: #ccc;
+  &:before {
+    content: '';
+    @include backscreen(rgba(0, 0, 0, 0.4));
+    @include animation(translateUpIn, 0.3s, $easeOutCubic, 0.0s);
+  }
+  &-head {
+    z-index: 2;
+    position: relative;
+  }
+  &-ttl-en {
+    @include font-en;
+    @include fz(20/2, 28/2, 0);
+    color: #FFFFFF;
+    @include mq-md {
+      @include fz(20, 40, 0);
+    }
+  }
+  &-ttl {
+    @include fz(14/2, 18/2, 200);
+    color: #FFFFFF;
+    @include mq-md {
+      @include fz(12.5, 27, 200);
+    }
+  }
+  @include mq-md {
+    &:hover:before {
+      @include animation(translateDownOut, 0.2s, $easeOutCubic);
+    }
+  }
+  &.is-pink {
+    background-image: linear-gradient(to top, $pink-gradient01-color, $pink-gradient02-color);
+  }
+  &.is-yellow {
+    background-image: linear-gradient(to top, $yellow-gradient01-color, $yellow-gradient02-color);
+  }
+  &.is-blue {
+    background-image: linear-gradient(to top, $blue-gradient01-color, $blue-gradient02-color);
+  }
+  &.is-green {
+    background-image: linear-gradient(to top, $green-gradient01-color, $green-gradient02-color);
+  }
+  &.is-red {
+    background-image: linear-gradient(to top, $red-gradient01-color, $red-gradient02-color);
+  }
+}

@@ -1,0 +1,63 @@
+/* =========================================================
+  component more
+============================================================ */
+.more {
+  $size: 10px;
+  @include font-en;
+  @include fz(20/2, 26/2, 100);
+  color: #006d74;
+  @include mq-md {
+    @include fz(13, 26, 100);
+  }
+  &-txt {
+    margin-left: 14px;
+    display: inline-block;
+    vertical-align: middle;
+    @include ts-hover();
+  }
+  &-arrow {
+    display: inline-block;
+    vertical-align: middle;
+    width: 46px;
+    font-size: 0;
+    @include mq-md {
+      @include ts-hover();
+    }
+    &:before {
+      content: '';
+      z-index: 10;
+      display: block;
+      margin: 0 auto;
+      position: relative;
+      top: $size + 1px;
+      width: 100%;
+      height: 1px;
+      border-bottom: solid 1px $green-color;
+      @include ts-hover();
+    }
+    .angle {
+      @include angle-line('right', $green-color, $size: $size, $border-width: 1px);
+      &:before, &:after {
+        @include ts-hover();
+      }
+    }
+  }
+  &:hover &-arrow {
+    width: 56px;
+  }
+  .is-hover &-txt {
+    color: $light-green-color;
+  }
+  .is-hover &-arrow {
+    width: 56px;
+    &:before {
+      border-color: $light-green-color;
+    }
+  }
+  .is-hover &-arrow .angle:before  {
+    border-color: $light-green-color;
+  }
+  .is-hover &-arrow .angle:after  {
+    border-color: $light-green-color;
+  }
+}

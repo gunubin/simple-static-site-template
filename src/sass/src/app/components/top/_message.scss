@@ -1,0 +1,77 @@
+/* message
+------------------------------------------------------------ */
+.top-message {
+  overflow: hidden;
+  margin-top: 60px;
+  @include mq-md {
+    position: relative;
+    margin-top: 100px;
+  }
+
+  &-img {
+    position: relative;
+    img {
+      @include img-max;
+    }
+    @include mq-md {
+      margin-left: 9%;
+    }
+    &-scroll {
+      @include backscreenScroll(#fff, top, Y);
+    }
+
+  }
+  &-head-outer {
+    @include mq-md {
+      position: absolute;
+      left: 60px;
+      @include vm;
+    }
+  }
+  &-head {
+    margin-top: 20px;
+    @include mq-md {
+      margin-top: 0;
+      text-align: left;
+    }
+    &-ttl {
+      @include title;
+    }
+    &-lead {
+      margin-top: 5px;
+      @include font-en;
+      @include fz(60/2, 60/2, 0);
+      color: #000000;
+      @include mq-md {
+        margin-top: 5px;
+        @include fz(52, 50, 0);
+      }
+      &-ja {
+        margin-top: 15px;
+        @include fz(30/2, 40/2, 0);
+        color: #000000;
+        @include mq-md {
+          margin-top: 40px;
+          @include fz(20, 36, 0);
+        }
+      }
+    }
+  }
+  &-txt {
+    @include text;
+    margin-top: 10px;
+    text-align: left;
+    @include mq-md {
+      margin-top: 16px;
+    }
+  }
+  &-btn {
+    @include mq-md {
+      margin-top: 70px;
+      padding: 14px 40px;
+      display: inline-block;
+      width: auto;
+    }
+  }
+}
+

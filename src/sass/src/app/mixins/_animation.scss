@@ -1,0 +1,80 @@
+
+/* functions
+------------------------------------------------------------ */
+@function kv-scroll-angle-keyframe-left() {
+  $keyframes: (
+          name: 'kv-scroll-angle-keyframe-left',
+          0: (transform: 'scale(0,0) translate(0%, 0px) rotate(-135deg)', transform-origin: '0% 50%'),
+          100: (transform: 'scale(1, 1) translate(0%, 0px) rotate(-135deg)', transform-origin: '0% 50%'),
+  );
+  @return $keyframes;
+}
+@function kv-scroll-angle-keyframe-right() {
+  $keyframes: (
+          name: 'kv-scroll-angle-keyframe-right',
+          0: (transform: 'scale(0,0) translate(0%, 0px) rotate(-45deg)', transform-origin: '0% 50%'),
+          100: (transform: 'scale(1, 1) translate(0%, 0px) rotate(-45deg)', transform-origin: '0% 50%'),
+  );
+  @return $keyframes;
+}
+@function scroll-top-angle-keyframe-left-out() {
+  $keyframes: (
+          name: 'scroll-top-angle-keyframe-left-out',
+          0: (transform: 'scale(1, 1) translate(0%, 0px) rotate(135deg)', transform-origin: '0% 50%'),
+          100: (transform: 'scale(0,0) translate(0%, 0px) rotate(135deg)', transform-origin: '0% 50%'),
+  );
+  @return $keyframes;
+}
+@function scroll-top-angle-keyframe-left() {
+  $keyframes: (
+          name: 'scroll-top-angle-keyframe-left',
+          0: (transform: 'scale(0,0) translate(0%, 0px) rotate(130deg)', transform-origin: '0% 50%'),
+          100: (transform: 'scale(1, 1) translate(0%, 0px) rotate(130deg)', transform-origin: '0% 50%'),
+  );
+  @return $keyframes;
+}
+@function scroll-top-angle-keyframe-right-out() {
+  $keyframes: (
+          name: 'scroll-top-angle-keyframe-right-out',
+          0: (transform: 'scale(1, 1) translate(0%, 0px) rotate(45deg)', transform-origin: '0% 50%'),
+          100: (transform: 'scale(0,0) translate(0%, 0px) rotate(45deg)', transform-origin: '0% 50%'),
+  );
+  @return $keyframes;
+}
+@function scroll-top-angle-keyframe-right() {
+  $keyframes: (
+          name: 'scroll-top-angle-keyframe-right',
+          0: (transform: 'scale(0,0) translate(0%, 0px) rotate(40deg)', transform-origin: '0% 50%'),
+          100: (transform: 'scale(1, 1) translate(0%, 0px) rotate(40deg)', transform-origin: '0% 50%'),
+  );
+  @return $keyframes;
+}
+@function scroll-top-arrow-keyframe() {
+  $keyframes: (
+          name: 'scroll-top-arrow-keyframe',
+          0: (transform: 'scaleY(0)', transform-origin: 'bottom'),
+          100: (transform: 'scaleY(1)', transform-origin: 'bottom'),
+  );
+  @return $keyframes;
+}
+
+/* preload for ie11
+  http://qiita.com/sawadays0118/items/bd0731878e9eb49c03f5#-media%E4%BB%A5%E4%B8%8B%E3%81%ABcss-animation%E3%81%AEkeyframes%E3%82%92%E6%8C%87%E5%AE%9A%E3%81%99%E3%82%8B%E3%81%A8%E5%8B%95%E4%BD%9C%E3%81%97%E3%81%AA%E3%81%84
+------------------------------------------------------------ */
+@include preload-keyframes(translateDownOut)
+@include preload-keyframes(translateDownIn())
+@include preload-keyframes(translateUpOut)
+@include preload-keyframes(translateUpIn)
+@include preload-keyframes(scaleDownOut)
+@include preload-keyframes(scaleDownIn)
+@include preload-keyframes(scaleUpOut)
+@include preload-keyframes(scaleUpIn)
+@include preload-keyframes(_scale('backscreenScrollIn', 2, 0, Y, top));
+@include preload-keyframes(_scale('backscreenScrollIn', 2, 0, X, 0));
+@include preload-keyframes(_scale('backscreenScrollIn', 2, 0, X, left));
+@include preload-keyframes(_scale('backscreenScrollIn', 2, 0, X, right));
+@include preload-keyframes(scroll-top-angle-keyframe-left);
+@include preload-keyframes(scroll-top-angle-keyframe-right);
+@include preload-keyframes(scroll-top-angle-keyframe-left-out);
+@include preload-keyframes(scroll-top-angle-keyframe-right-out);
+@include preload-keyframes(scroll-top-arrow-keyframe);

@@ -1,0 +1,66 @@
+/* =========================================================
+  component header
+============================================================ */
+.header-bg {
+  z-index: $z-index-header-bg;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 54px;
+  background-color: #fff;
+  transform: translateY(-100%);
+  transition: 0.3s $easeOutCubic;
+  @include mq-md {
+    height: 88px;
+    @include ts-hover;
+  }
+  &.is-scrolled {
+    transform: translateY(0%);
+  }
+}
+.header {
+  overflow: hidden;
+  z-index: $z-index-header;
+  position: fixed;
+  top: 18px;
+  left: 0;
+  padding: 0 20px;
+  @include mq-md {
+    top: 52px;
+    padding: 0 60px;
+    @include ts-hover;
+  }
+  &.is-scrolled {
+    @include mq-md {
+      top: 28px;
+    }
+  }
+  &-logo {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1;
+    svg {
+      path {
+        @include ts-hover(.3s);
+      }
+    }
+    .logo-infobahngroup {
+      @include svg-logo-infobahngroup(14px, #fff);
+      @include mq-md {
+        @include svg-logo-infobahngroup(24px, #fff);
+      }
+    }
+  }
+  &.open &-logo svg * {
+    fill: #000 !important;
+    @include mq-menu-btn {
+      fill: #fff !important;
+    }
+  }
+  /* is scroll
+------------------------------------------------------------ */
+  &.is-scrolled &-logo svg path {
+    fill: #3c3c3c;
+  }
+}

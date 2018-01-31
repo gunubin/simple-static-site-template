@@ -1,0 +1,50 @@
+/* =========================================================
+  component subpage head
+============================================================ */
+.subpagehead {
+  overflow: hidden;
+  padding: 54px 20px 0;
+  width: 100%;
+  height: 300px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include mq-md {
+    padding-top: 88px;
+    height: 600px;
+  }
+  &-background {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to top, $green-gradient01-color, $green-gradient02-color);
+  }
+  &-inner {
+    z-index: 2;
+    position: relative;
+    padding: 0 20px;
+    text-align: center;
+    @include mq-md {
+      max-width: 720px;
+    }
+  }
+  &-ttl {
+    @include fz(12/2, 40/2, 100);
+    color: #FFFFFF;
+    @include mq-md {
+      @include fz(12, 40, 100);
+    }
+    &-en {
+      @include fz(45/2, 40/2, 200);
+      color: #FFFFFF;
+      @include font-en;
+      @include mq-md {
+        @include fz(45, 40, 200);
+      }
+    }
+  }
+}

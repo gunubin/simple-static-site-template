@@ -1,0 +1,12 @@
+@mixin ts-hover($duration: 0.20s, $ease: $easeOutCubic, $target: all) {
+  transition: $target #{$duration} $ease;
+}
+@mixin ts-reset() {
+  -webkit-backface-visibility: hidden;
+}
+@mixin ts-zoom() {
+  transition: 1.0s cubic-bezier(.34, .96, .74, .9);
+}
+@mixin ts-zoom-hover() {
+  transform: scale(1.10);
+}

@@ -1,0 +1,15 @@
+@import 'mixins/clearfix';
+@import 'mixins/position';
+@import 'mixins/transition';
+@import 'mixins/text';
+@import 'mixins/image';
+@import 'mixins/form';
+@import 'mixins/mediaquery';
+
+@mixin opacity($val) {
+  opacity: $val;
+  filter: alpha(opacity=#{$val*100});
+}
+
+
+

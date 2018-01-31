@@ -1,0 +1,78 @@
+/* =========================================================
+  component section
+============================================================ */
+.section {
+  &-bg {
+    @include backscreen();
+  }
+  &-head {
+    padding-top: 58px;
+    text-align: center;
+    @include mq-md {
+      padding-top: 120px;
+    }
+  }
+  &-ttl-en {
+    @include font-en;
+    @include fz(45/2, 40/2, 0);
+    color: #000000;
+    @include mq-md {
+      @include fz(45, 40, 0);
+    }
+  }
+  &-ttl {
+    margin-top: 6px;
+    @include fz(18/2, 26/2, 100);
+    color: $gray-color;
+    @include mq-md {
+      @include fz(12, 24, 100);
+    }
+  }
+
+  &-lead {
+    margin-top: 44px;
+    @include fz(30/2, 45/2, 100);
+    font-weight: 700;
+    color: #4E4E4E;
+    @include mq-md {
+      margin-top: 90px;
+      @include fz(20, 33, 100);
+      font-weight: 700;
+      color: #3C3C3C;
+    }
+    &-sep {
+      content: '';
+      margin: 20px 0 0;
+      display: block;
+      width: 20px;
+      height: 1px;
+      border-top: 1px solid #ccc;
+      @include mq-md {
+        margin: 40px 0 0;
+        width: 25px;
+
+      }
+    }
+    .small {
+      @include fz(24/2, 45/2, 100);
+      color: #3C3C3C;
+      @include mq-md {
+        @include fz(14, 33, 100);
+      }
+    }
+  }
+
+  &-txt {
+    @include text;
+  }
+  &-img {
+    margin-top: 42px;
+    text-align: center;
+    @include mq-md {
+      margin-top: 92px;
+    }
+    img {
+      @include img-responsive;
+    }
+  }
+}

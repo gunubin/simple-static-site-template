@@ -1,0 +1,9 @@
+@mixin font-ja {
+  font-family: "NotoSansCJKjp-Medium", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS P Gothic", Verdana, sans-serif
+}
+@mixin font-en {
+  font-family: PalanquinDark-SemiBold, sans-serif;
+}
+@mixin font-en-ja {
+  font-family: PalanquinDark-SemiBold,"NotoSansCJKjp-Medium",  "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS P Gothic", Verdana, sans-serif
+}

@@ -1,0 +1,77 @@
+// gutterの上書き
+@mixin make-gutter($gutter-width) {
+  .container {
+    padding-left: #{$gutter-width/2}px;
+    padding-right: #{$gutter-width/2}px;
+  }
+  .row {
+    margin-left: -#{$gutter-width/2}px;
+    margin-right: -#{$gutter-width/2}px;
+  }
+  [class^="col-"] {
+    padding-left: #{$gutter-width/2}px;
+    padding-right: #{$gutter-width/2}px;
+  }
+}
+
+// .col-#{media}-#{columns} を作成
+//@include build-grid('', col-xs);
+//@include build-grid('', col-sm, $screen-sm-min, $container-sm, $grid-gutter-width-sm);
+//@include build-grid('', col-md, $screen-md-min, $container-md, $grid-gutter-width-md);
+//@include build-grid('', col-lg, $screen-lg-min, $container-lg, $grid-gutter-width-lg);
+
+// visibility
+//@include invisibility('.visible-xs');
+//@include invisibility('.visible-xs-block');
+//@include invisibility('.visible-xs-inline');
+//@include invisibility('.visible-xs-inline-block');
+//@include invisibility('.visible-sm');
+//@include invisibility('.visible-sm-block');
+//@include invisibility('.visible-sm-inline');
+//@include invisibility('.visible-sm-inline-block');
+//@include invisibility('.visible-md');
+//@include invisibility('.visible-md-block');
+//@include invisibility('.visible-md-inline');
+//@include invisibility('.visible-md-inline-block');
+//@include invisibility('.visible-lg');
+//@include invisibility('.visible-lg-block');
+//@include invisibility('.visible-lg-inline');
+//@include invisibility('.visible-lg-inline-block');
+//
+//@media (max-width: $screen-xs-max) {
+//  @include visibility('.visible-xs');
+//  @include visibility('.visible-xs-blcok');
+//  @include visibility('.visible-xs-inline');
+//  @include visibility('.visible-xs-inline-block');
+//}
+//@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+//  @include visibility('.visible-sm');
+//  @include visibility('.visible-sm-blcok');
+//  @include visibility('.visible-sm-inline');
+//  @include visibility('.visible-sm-inline-block');
+//}
+//@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+//  @include visibility('.visible-md');
+//  @include visibility('.visible-md-blcok');
+//  @include visibility('.visible-md-inline');
+//  @include visibility('.visible-md-inline-block');
+//}
+//@media (min-width: $screen-lg-min) {
+//  @include visibility('.visible-lg');
+//  @include visibility('.visible-lg-blcok');
+//  @include visibility('.visible-lg-inline');
+//  @include visibility('.visible-lg-inline-block');
+//}
+//
+//@media (max-width: $screen-xs-max) {
+//  @include invisibility('.hidden-xs');
+//}
+//@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+//  @include invisibility('.hidden-sm');
+//}
+//@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+//  @include invisibility('.hidden-md');
+//}
+//@media (min-width: $screen-lg-min) {
+//  @include invisibility('.hidden-lg');
+//}

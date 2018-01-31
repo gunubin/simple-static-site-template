@@ -1,0 +1,96 @@
+/* =========================================================
+  component news
+============================================================ */
+.archive {
+  margin-top: 30px;
+  padding-bottom: 15px;
+  @include mq-md {
+    margin-top: 50px;
+  }
+  &-link {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    @include mq-md {
+      margin-top: 60px;
+    }
+  }
+  &-img {
+    width: 28%;
+    @include mq-md {
+      width: 34%;
+    }
+    img {
+      @include img-max;
+    }
+  }
+  &-head {
+    width: 72%;
+    margin-left: 14px;
+    @include mq-md {
+      width: 66%;
+      margin-left: 8%;
+    }
+  }
+  &-meta {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  &-date {
+    margin-right: 1em;
+    @include fz(19/2, 26/2, 200);
+    @include font-en;
+    color: $green-color;
+    white-space: nowrap;
+    @include mq-md {
+      @include fz(14, 26, 200);
+    }
+    &:before {
+      content: '';
+      margin-right: 5px;
+      display: inline-block;
+      vertical-align: middle;
+      border-top: 1px solid $green-color;
+      width: 14px;
+      height: 1px;
+      @include mq-md {
+        width: 16px;
+        margin-right: 15px;
+      }
+    }
+  }
+  &-type {
+    @include fz(19/2, 26/2, 100);
+    @include font-en;
+    color: #B6B6B6;
+    @include mq-md {
+      @include fz(13, 25, 100);
+    }
+  }
+  &-ttl {
+    overflow: hidden;
+    margin-top: 0.2em;
+    @include fz(20/2, 30/2, 50);
+    color: #3C3C3C;
+    height: 2em * 30 / 20;
+    @include mq-md {
+      margin-top: 1.8em;
+      height: auto;
+      max-height: 2em * 33 / 20;
+      @include fz(20, 33, 50);
+    }
+  }
+  &-body {
+    display: none;
+    @include mq-md {
+      display: block;
+      height: 2em * 27 / 13;
+      margin-top: 2.6em;
+      @include fz(13, 27, 75);
+      color: #3C3C3C;
+    }
+  }
+
+}

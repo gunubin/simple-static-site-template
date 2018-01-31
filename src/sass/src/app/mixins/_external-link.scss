@@ -1,0 +1,37 @@
+@mixin external-link($border-color: #fff, $background-color: transparent) {
+  width: 18px;
+  height: 18px;
+  margin-left: 1em;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  @include mq-md {
+    margin-left: 0.75em;
+  }
+  &:before, &:after {
+    content: '';
+    margin-top: 2px;
+    position: absolute;
+    top: 50%;
+    left: -2px;
+    transform: translateY(-50%);
+    display: block;
+    width: 8px;
+    height: 8px;
+    border: 1px solid $border-color;
+    background-color: $background-color;
+    @include mq-md {
+      margin-top: 2px;
+    }
+  }
+  &:after {
+    transform: translate(-3px, -7px);
+  }
+}
+
+@mixin external-link-color($border-color: #fff, $background-color: transparent) {
+  &:before, &:after {
+    border-color: $border-color;
+    background-color: $background-color;
+  }
+}

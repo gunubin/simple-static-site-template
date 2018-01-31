@@ -1,0 +1,22 @@
+/* =========================================================
+  component plus
+============================================================ */
+@mixin plus-minus {
+  &:before, &:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    width: 8px;
+    height: 1px;
+    top: 50%;
+    transform: translate(0, 0%);
+    border-top: 1px solid #989898;
+    @include ts-hover();
+  }
+  &:after {
+    transform: translate(0, 0%) rotate(90deg);
+  }
+  &.is-minus:after {
+      transform: translate(0, 0%) rotate(0deg);
+  }
+}

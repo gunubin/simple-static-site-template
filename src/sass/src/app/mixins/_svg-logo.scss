@@ -1,0 +1,50 @@
+@mixin svg-logo-loading($height: 20px, $color: #353535) {
+  $aspect: 113.9 / 24.8;
+  width: $height * $aspect;
+  height: $height;
+  * {
+    fill: $color;
+  }
+}
+
+@mixin svg-logo-infobahngroup($height: 20px, $color: #353535) {
+  position: relative;
+  top: 2px;
+  $aspect: 447.8 / 40;
+  width: $height * $aspect;
+  height: $height;
+  @include mq-md {
+    top: 3px;
+  }
+  * {
+    fill: $color;
+  }
+}
+
+@mixin svg-logo-infobahn($height: 20px, $color: #353535) {
+  position: relative;
+  top: 2px;
+  $aspect: 257.2 / 40;
+  width: $height * $aspect;
+  height: $height;
+  @include mq-md {
+    top: 3px;
+  }
+  * {
+    fill: $color;
+  }
+}
+
+@mixin svg-logo-mediagene($height: 20px, $color: #353535) {
+  position: relative;
+  top: 2px;
+  $aspect: 215.7 / 40;
+  width: $height * $aspect;
+  height: $height;
+  @include mq-md {
+    top: 3px;
+  }
+  * {
+    fill: $color;
+  }
+}

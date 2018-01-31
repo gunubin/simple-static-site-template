@@ -1,0 +1,15 @@
+/* =========================================================
+  component external link
+============================================================ */
+.ext {
+  @include external-link($green-color, #fff);
+}
+.is-hover  .ext {
+  @include external-link-color($light-green-color, #fff);
+}
+.ext-gray {
+  @include external-link($green-color, $background-color);
+}
+.is-hover  .ext-gray {
+  @include external-link-color($light-green-color, $background-color);
+}

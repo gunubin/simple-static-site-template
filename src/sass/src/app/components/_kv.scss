@@ -1,0 +1,306 @@
+/* =========================================================
+  component kv
+============================================================ */
+.kv {
+  overflow: hidden;
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100vh;
+  &-moon {
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    &-obj, &-obj1, &-obj2, &-obj3 {
+      display: none;
+      z-index: 1;
+      opacity: 1.0;
+      @include center;
+      @include img-max;
+      @include mq-md {
+        width: auto;
+        @include img-responsive;
+      }
+    }
+    &-objj1, &-obj3 {
+      z-index: 3;
+    }
+    canvas {
+      z-index: 2;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+      opacity: 1.0;
+      transform: translateX(10.9%);
+    }
+  }
+  &-background {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to top, #6598a0, #005461);
+  }
+  &-head {
+    z-index: 3;
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    @include font-en;
+    text-align: center;
+    &-copy {
+      display: block;
+      width: 100%;
+      @include fz(88/2, 88/2, -25);
+      color: #FFFFFF;
+      @include mq-md {
+        @include fz(105, 105, -25);
+      }
+      &-top {
+        overflow: hidden;
+        &-char {
+          top: -9px;
+          position: relative;
+          display: inline-block;
+          transform: translateY(100%);
+          @include mq-md {
+            top: -22px;
+          }
+        }
+      }
+      &-x {
+        overflow: hidden;
+        position: relative;
+        margin: 0 auto;
+        padding: 0;
+        top: -6px;
+        width: 16px;
+        height: 16px;
+        @include mq-md {
+          top: -14px;
+          width: 32px;
+          height: 32px;
+        }
+        &-obj {
+          display: block;
+          @include img-max;
+          transform: translateY(100%);
+        }
+      }
+    }
+    &-slider {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      height: 1.0em;
+    }
+    &-slide {
+      overflow: hidden;
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+      white-space: nowrap;
+      &-char {
+        top: -9px;
+        position: relative;
+        display: inline-block;
+        transform: translateY(120%);
+        @include mq-md {
+          top: -22px;
+        }
+      }
+      &.is-3 {
+        letter-spacing: -5px;
+        @include media(360px) {
+          letter-spacing: -3px;
+        }
+        @include media(390px) {
+          letter-spacing: 0;
+        }
+      }
+    }
+
+    &-desc {
+      margin-top: 10px;
+      display: block;
+      @include fz(13/2, 18/2, 100);
+      color: #FFFFFF;
+      //opacity: 0;
+      @include mq-md {
+        @include fz(13, 18, 100);
+      }
+    }
+  }
+
+  &-links {
+    z-index: 4;
+    position: absolute;
+    width: 77px;
+    right: 0;
+    bottom: 14px;
+    @include mq-md {
+      width: 139px;
+      bottom: 40px;
+    }
+  }
+  &-link {
+    overflow: hidden;
+    display: block;
+    margin-right: 20px;
+    height: auto;
+    opacity: 0.6;
+    text-align: left;
+    @include mq-md {
+      margin-right: 60px;
+      @include ts-hover;
+    }
+    span {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    //svg * {
+    //  fill: #fff;
+    //}
+    .logo-infobahn {
+      @include svg-logo-infobahn(10px, #fff);
+      @include mq-md {
+        @include svg-logo-infobahn(12px, #fff);
+      }
+    }
+    .logo-mediagene {
+      @include svg-logo-mediagene(10px, #fff);
+      @include mq-md {
+        @include svg-logo-mediagene(14px, #fff);
+      }
+    }
+    &-sep {
+      margin: 2px 0;
+      display: block;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+      @include mq-md {
+        margin: 6px 0;
+      }
+    }
+    &:hover {
+      @include mq-md {
+        opacity: 1.0;
+      }
+    }
+  }
+  &-share {
+    overflow: hidden;
+    z-index: 4;
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    @include font-en;
+    @include fz(13/2, 13/2, 100);
+    color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    @include mq-md {
+      left: 60px;
+      bottom: 40px;
+      @include fz(13, 20, 100);
+    }
+
+    &-trig {
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 4px;
+      @include ts-hover();
+      i {
+        margin-right: 2px;
+      }
+    }
+    &-link {
+      padding: 0 4px;
+      display: inline-block;
+      vertical-align: middle;
+      color: rgba(255, 255, 255, 0.6);
+      @include fz(29/2, 29/2, 100);
+      @include ts-hover();
+      @include animation(translateUpOut(0, 120), 0.3s, $easeOutCubic);
+    }
+    &:hover &-trig {
+      color: rgba(255, 255, 255, 1.0);
+    }
+    &:hover &-link {
+      color: rgba(255, 255, 255, 1.0);
+      @include animation(translateUpIn(120, 0), 0.3s, $easeOutCubic);
+      &:nth-child(3) {
+        animation-delay: 0.1s;
+      }
+    }
+  }
+  &-scroll {
+    z-index: 4;
+    position: absolute;
+    display: inline-block;
+    @include horizontal-center;
+    width: 10em;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+    bottom: 10%;
+    @include font-en;
+    @include fz(13/2, 30/2, 100);
+    color: #fff;
+    //opacity: 0;
+    @include mq-md {
+      bottom: 5%;
+      @include fz(13, 26, 100);
+    }
+
+    &-arrow {
+      display: block;
+      height: 50px;
+      font-size: 0;
+      &:before {
+        content: '';
+        z-index: 10;
+        display: block;
+        margin: 0 auto;
+        position: relative;
+        width: 1px;
+        height: 100%;
+        border-left: solid 1px #fff;
+        @function arrow-keyframe() {
+          $keyframes: (
+                  name: 'arrow-keyframe',
+                  0: (transform: 'scaleY(0)', transform-origin: 'top'),
+                  25: (transform: 'scaleY(1)', transform-origin: 'top'),
+                  50: (transform: 'scaleY(1)', transform-origin: 'bottom'),
+                  100: (transform: 'scaleY(0)', transform-origin: 'bottom'),
+          );
+          @return $keyframes;
+        }
+        @include animation(arrow-keyframe(), 1.2s, $easeInOutCubic, 0, infinite);
+      }
+      .angle {
+        @include angle-line('down', #fff, $size: 12px, $border-width: 1px);
+        top: 0;
+        &:before {
+          @include animation(kv-scroll-angle-keyframe-left, 0.6s, $easeInOutCubic, 0, infinite, alternate);
+        }
+        &:after {
+          @include animation(kv-scroll-angle-keyframe-right, 0.6s, $easeInOutCubic, 0, infinite, alternate);
+        }
+      }
+    }
+  }
+}
+
+
