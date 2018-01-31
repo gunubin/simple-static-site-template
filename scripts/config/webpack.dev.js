@@ -12,6 +12,7 @@ module.exports =
       devtool: 'heap-module-eval-source-map',
       entry: {
         app: [
+          "babel-polyfill",
           paths.js.index
         ]
       },
