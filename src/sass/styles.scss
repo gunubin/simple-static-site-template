@@ -1,3 +1,5 @@
-@import 'src/app/variables';
-@import 'src/lib';
-@import 'src/app';
+@import './components/foo';
+
+body {
+  background-color: #fff;
+}

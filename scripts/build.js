@@ -33,7 +33,7 @@ const runWebpackCompiler = webpackConfig =>
 const compile = () => Promise.resolve()
   .then(() => logger.info('Stating compiler...'))
   .then(() => prepareCompile())
-  .then(() => runWebpackCompiler([config]))
+  .then(() => runWebpackCompiler([config, configSass]))
   .then(() => {
     logger.success(`Compiler finished successfully! See ${paths.public}.`)
   })

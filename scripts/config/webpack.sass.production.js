@@ -25,7 +25,7 @@ module.exports = merge.smart(
                 options: {
                   plugins: loader => [
                     require('autoprefixer')({
-                      browsers: ['IE 9', 'IE 10', 'IE 11', 'last 2 versions']
+                      browsers: ['> 1%']
                     })
                   ],
                 }

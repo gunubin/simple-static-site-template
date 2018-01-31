@@ -11,6 +11,8 @@ module.exports = {
   sass: resolveApp('src/sass'),
   mainSass: resolveApp('src/sass/styles.scss'),
   css: resolveApp('build/assets/css'),
+  imageSrc: resolveApp('src/images'),
+  image: resolveApp('build/assets/images'),
   js: {
     index: resolveApp('src/js/index.js'),
     build: resolveApp('build/assets/js')

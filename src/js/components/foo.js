@@ -1,4 +1,3 @@
-
 export default function () {
-  console.log('header7');
+  console.log('bar');
 }

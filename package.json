@@ -12,8 +12,10 @@
     "css-loader": "^0.28.9",
     "extract-text-webpack-plugin": "^3.0.2",
     "fs-extra": "^5.0.0",
+    "imagemin": "^5.3.1",
+    "imagemin-jpegtran": "^5.0.2",
+    "imagemin-pngquant": "^5.0.1",
     "node-sass": "^4.7.2",
-    "nodemon": "^1.14.11",
     "npm-run-all": "^4.1.2",
     "postcss-loader": "^2.0.10",
     "sass-loader": "^6.0.6",
@@ -24,9 +26,9 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "build": "BABEL_ENV=production node scripts/build",
-    "build:css": "node-sass src/sass/styles.scss build/assets/css/styles.css --source-map true --output-style compressed",
-    "start": "node scripts/webpack & node scripts/server & npm-run-all watch:*",
-    "watch:css": "node-sass src/sass/styles.scss build/assets/css/styles.css --source-map true -w"
+    "build": "npm-run-all build:*",
+    "build:image": "BABEL_ENV=production node scripts/image",
+    "build:js": "BABEL_ENV=production node scripts/build",
+    "start": "node scripts/webpack & node scripts/server"
   }
 }

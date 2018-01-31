@@ -1,4 +1,3 @@
-import tst from './components/header'
+import foo from './components/foo'
 
-
-tst()
+foo()
