@@ -4,7 +4,7 @@ const webpack = require('webpack')
 const paths = require('./paths')
 
 module.exports =
-  merge(
+  merge.smart(
     common,
     {
       devtool: 'source-map',

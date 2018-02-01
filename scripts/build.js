@@ -6,18 +6,6 @@ const logger = require('./lib/logger')
 const paths = require('./config/paths')
 const fs = require('fs-extra')
 
-const prepareCompile = () =>
-  new Promise((resolve, reject) => {
-    logger.info(`Copying static assets from ${paths.src} to ${paths.public}.`)
-    fs.emptyDirSync(paths.build) // clean up
-    fs.copySync(paths.public, paths.build, {
-      dereference: true,
-      // filter: file => file !== paths.html
-    })
-    logger.info(`copy done.`)
-    return resolve()
-  })
-
 const runWebpackCompiler = webpackConfig =>
   new Promise((resolve, reject) => {
     webpack(webpackConfig).run((err, stats) => {
@@ -32,7 +20,6 @@ const runWebpackCompiler = webpackConfig =>
 
 const compile = () => Promise.resolve()
   .then(() => logger.info('Stating compiler...'))
-  .then(() => prepareCompile())
   .then(() => runWebpackCompiler([config, configSass]))
   .then(() => {
     logger.success(`Compiler finished successfully! See ${paths.public}.`)

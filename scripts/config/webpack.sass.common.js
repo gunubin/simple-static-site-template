@@ -5,7 +5,7 @@ const paths = require('./paths')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
-  name: 'style',
+  name: 'Style',
   entry: {
     styles: paths.mainSass
   },

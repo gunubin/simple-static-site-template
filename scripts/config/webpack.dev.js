@@ -7,7 +7,6 @@ module.exports =
   merge.smart(
     common,
     {
-      name: 'js',
       cache: true,
       devtool: 'heap-module-eval-source-map',
       entry: {
@@ -27,7 +26,7 @@ module.exports =
           'process.env.BROWSER': true,
         }),
         new webpack.NamedModulesPlugin(),
-        new webpack.NoEmitOnErrorsPlugin()
+        new webpack.NoEmitOnErrorsPlugin(),
       ],
     }
   )
