@@ -32,8 +32,8 @@
   "scripts": {
     "build": "npm-run-all clean build:*",
     "build:ejs": "ejs-cli --base-dir src/ '**/!(_*).ejs' --out ./build/",
-    "build:image": "BABEL_ENV=production node scripts/image",
-    "build:js": "BABEL_ENV=production node scripts/build",
+    "build:image": "node scripts/image",
+    "build:js": "node scripts/build",
     "clean": "node scripts/clean",
     "start": "node scripts/webpack & node scripts/server & npm-run-all watch:*",
     "watch:ejs": "nodemon -e ejs -x 'npm run build:ejs'"
